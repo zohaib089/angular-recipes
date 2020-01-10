@@ -1,8 +1,10 @@
 import { Recipe } from './recipe.model';
+import { EventEmitter } from '@angular/core';
 
 
 
 export class RecipeService {
+    recipeSelected = new EventEmitter<Recipe>();
     private recipes: Recipe[] = [
         new Recipe('Asian Stake Recipe', 'Using this Recipe you can cook delicious Stake in less than an hour of cooking',
             'http://cdn.differencebetween.net/wp-content/uploads/2016/05/640px-Tradicinis_didkepsnis_restorane_STEAKHOUSE_HAZIENDA.jpg'),
@@ -14,4 +16,5 @@ export class RecipeService {
     getRecipe() {
         return this.recipes.slice();
     }
+
 }
